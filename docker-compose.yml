@@ -9,9 +9,9 @@ services:
       LANGCHAIN_API_KEY: ${LANGCHAIN_API_KEY}
       LOGGING_LEVEL: INFO
     volumes:
-      - ${PWD}/my-docs:/usr/src/app/my-docs:rw
-      - ${PWD}/outputs:/usr/src/app/outputs:rw
-      - ${PWD}/logs:/usr/src/app/logs:rw
+      - gpt_data:/usr/src/app/my-docs:rw
+      - gpt_data:/usr/src/app/outputs:rw
+      - gpt_data:/usr/src/app/logs:rw
     user: root
     restart: always
     ports:
@@ -34,7 +34,7 @@ services:
     volumes:
       - /app/node_modules
       - ./frontend/nextjs:/app
-      - ./outputs:/app/outputs
+      - gptr_data:/app/outputs
     restart: always
     ports:
       - 3000:3000
@@ -58,6 +58,10 @@ services:
       "
     networks:
       - gpt_research_network
+
+volumes:
+  gpt_data:
+  gptr_data:
 
 networks:
   gpt_research_network:
