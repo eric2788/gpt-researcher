@@ -27,12 +27,12 @@ services:
       NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID}
       NEXT_PUBLIC_GPTR_API_URL: ${NEXT_PUBLIC_GPTR_API_URL:-http://gpt-researcher:8000}
     build:
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
       context: frontend/nextjs
-    volumes:
-      - /app/node_modules
-      - ./frontend/nextjs:/app
-      - ./outputs:/app/outputs
+    # volumes:
+    #   - /app/node_modules
+    #   - ./frontend/nextjs:/app
+    #   - ./outputs:/app/outputs
     restart: always
     ports:
       - 3001:3000
