@@ -32,7 +32,7 @@ services:
     volumes:
       - /app/node_modules
       - ./frontend/nextjs:/app
-      - gptr_data:/app/outputs
+      - ./outputs:/app/outputs
     restart: always
     ports:
       - 3001:3000
